@@ -1,7 +1,0 @@
-server:
-  port: 8888
-  error:
-    include-exception: false      # Response ? Exception ? ????
-    include-message: always       # Response ? Exception Message ? ???? (never | always | on_param)
-    include-stacktrace: on_param  # Response ? Stack Trace ? ???? (never | always | on_param) on_trace_params ? deprecated
-    whitelabel.enabled: true      # ?? ?? ? Spring ?? ?? ??? ?? ??
