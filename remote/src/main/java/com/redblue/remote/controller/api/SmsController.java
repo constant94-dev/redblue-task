@@ -2,8 +2,8 @@ package com.redblue.remote.controller.api;
 
 import static com.redblue.remote.exception.ErrorCode.SMS_REQUEST_NOT_FOUND;
 
-import com.redblue.remote.dto.SmsRequestDTO;
-import com.redblue.remote.dto.SmsResponseDTO;
+import com.redblue.remote.data.dto.SmsRequestDTO;
+import com.redblue.remote.data.dto.SmsResponseDTO;
 import com.redblue.remote.exception.CustomException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
