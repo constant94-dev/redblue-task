@@ -1,4 +1,6 @@
 package com.redblue.local.service;
 
-public class RestTemplateService {
+public interface RestTemplateService {
+
+    public void sendSms();
 }

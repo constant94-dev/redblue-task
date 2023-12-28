@@ -1,4 +1,6 @@
 package com.redblue.local.service;
 
-public class WebClientService {
+public interface WebClientService {
+
+    public void sendSms();
 }
