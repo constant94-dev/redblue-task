@@ -22,6 +22,8 @@ dependencies {
 
     // maven repo web MVC
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // maven repo thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     // maven repo spring boot test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
