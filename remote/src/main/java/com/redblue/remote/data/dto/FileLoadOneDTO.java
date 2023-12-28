@@ -1,4 +1,4 @@
-package com.redblue.remote.dto;
+package com.redblue.remote.data.dto;
 
 import lombok.Getter;
 import lombok.Setter;
