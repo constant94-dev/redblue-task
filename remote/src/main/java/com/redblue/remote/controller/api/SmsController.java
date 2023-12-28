@@ -21,11 +21,15 @@ public class SmsController {
     private final Logger LOGGER = LoggerFactory.getLogger(SmsController.class);
 
     @PostMapping(value = "/sendSMS")
-    public ResponseEntity<SmsResponseDTO> send(
+    public ResponseEntity<SmsResponseDTO> sendToSMS(
             @RequestBody SmsRequestDTO requestDTO,
-            @RequestHeader(name = "Content-Type") String contentType
+            @RequestHeader(name = "Content-Type") String contentType,
+            @RequestHeader(name = "Authorization") String token
     ) {
-        LOGGER.info("/api/sendSMS 호출!!\tContent-Type: " + contentType);
+        LOGGER.info("/api/sendSMS 호출!!");
+        LOGGER.info("Content-Type: {}", contentType);
+        LOGGER.info("Authorization: {}", token);
+
         SmsResponseDTO responseDTO = new SmsResponseDTO();
 
         if (requestDTO.getTitle() == null
