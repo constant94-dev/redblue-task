@@ -24,6 +24,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // maven repo thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // maven repo JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // maven repo mysql
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+    // maven repo json simple
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 
     // maven repo spring boot test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
