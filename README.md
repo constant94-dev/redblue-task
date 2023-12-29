@@ -1,11 +1,34 @@
-## Status: Developing
+## Status: complete
+
+> 아래에 소개된 내용이 과제로 주어진 문항들의 구현 내용입니다.   
+> 해당 되는 디렉토리에 접근하시면 각각의 `README.md` 가 작성되어 있습니다.   
+> 1번 문항은 직접 체험해 볼 수 있게 환경을 만들어두었습니다.   
+> 
+> https://test-redblue.kro.kr < 이 도메인으로 접속하시면 파일 업로드 & 조회를 할 수 있습니다.
+> 주의! 예외 상황에 대한 처리가 모두 되어 있지 않으니 아래 프로세스를 지키면 좋습니다.   
+> 
+> 1. 파일 선택을 클릭 (jpg, png)
+> 2. 업로드 클릭
+> 3. 상단에 업로드 된 파일 이름 출력
+> 4. 조회하고 싶은 파일 이름 작성
+> 5. 조회 클릭
+> 6. 하단에 조회한 파일 출력
 
 + local
-    + RestTemplate와 WebClient로 REST API 호출 프로그램
-+ remote
-    + 외부 Rest API End Point 서버 프로그램
+    + RestTemplate과 WebClient로 REST API 호출 프로그램
++ remote (외부 Rest API End Point 서버)
     + Java + Spring Boot 구조 Multipart 파일 업로드, 조회 API 프로그램
     + HashMap을 이용 Strinig 글자를 카운트하는 Method
     + JSON 전달받은, 입력값 500건마다 bulk Insert하는 Java 프로그램
 + diagram
     + 클래스 다이어그램
+
+
+```
+마무리하며.
+과제 수행이 마냥 쉽지는 않았습니다. 알고 있던 것을 상기시키며 구현하기도 했고 모르던 것을 공부하고 채워나가는 과정을 경험했습니다.   
+
+구현하며 마주친 시행착오들을 기록해두고 따로 시간이 빌 때 개인 블로그에 작성해보려고 합니다.
+
+끝으로 레드블루 과제전형에 참여할 기회를 주셔서 감사드립니다.
+```
