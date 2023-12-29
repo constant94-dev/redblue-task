@@ -118,36 +118,36 @@
 ```java
 // 글자 수 카운트 Method
 public Map<String, Integer> wordCount(String inputStr){
-        LOGGER.info("wordCount 호출!!");
-        Map<String, Integer> words=new HashMap<>();
+    LOGGER.info("wordCount 호출!!");
+    Map<String, Integer> words=new HashMap<>();
 
-        for(char c:inputStr.toCharArray()){
+    for(char c:inputStr.toCharArray()){
         String convert=String.valueOf(c);
         words.put(convert,words.getOrDefault(convert,0)+1);
-        }
+    }
 
-        return words;
-        }
+    return words;
+}
 
 // 글자 수 카운트 테스트코드
 @DisplayName("입력받은 문자열의 각 글자수를 카운트하고 가장 높은 카운트 확인")
 @ParameterizedTest
 @CsvSource(value = {"son,1", "aaa,3", "awsazuregcpcloud,2"})
 void wordCount(String inputStr,int expected){
-        WordCount wordCount=new WordCount();
+    WordCount wordCount=new WordCount();
 
-        Map<String, Integer> result=wordCount.wordCount(inputStr);
-        Set<Entry<String, Integer>>actuals=result.entrySet();
-
-        int max=0;
-        for(Entry<String, Integer> actual:actuals){
+    Map<String, Integer> result=wordCount.wordCount(inputStr);
+    Set<Entry<String, Integer>>actuals=result.entrySet();
+        
+    int max=0;
+    for(Entry<String, Integer> actual:actuals){
         if(actual.getValue()>max){
-        max=actual.getValue();
+            max=actual.getValue();
         }
-        }
-
-        assertThat(max).isEqualTo(expected);
-        }
+    }
+        
+    assertThat(max).isEqualTo(expected);
+}
 ```
 
 ---
@@ -175,34 +175,33 @@ void wordCount(String inputStr,int expected){
 @Transactional
 @Override
 public void bulkSave(List<ReservationEntity> reservationEntities){
-        LOGGER.info("ReservationDAOImpl bulkSave 호출!!");
-        batchInsert(500,reservationEntities);
-        }
+    LOGGER.info("ReservationDAOImpl bulkSave 호출!!");
+    batchInsert(500,reservationEntities);
+}
 
 private void batchInsert(int batchSize,List<ReservationEntity> reservationEntities){
-        long beforeTime=System.currentTimeMillis();
+    long beforeTime=System.currentTimeMillis();
 
-        int[][]results=jdbcTemplate.batchUpdate(
-        " INSERT INTO reservation ( "
-        +"id, seq_ticket, reservation_unit, owner_id, used_number"
-        +") values ("
-        +"?, ?, ?, ?, ?"
-        +")",
-        reservationEntities,
-        batchSize,
-        (ps,reservationEntity)->{
-        ps.setObject(1,reservationEntity.getId());
-        ps.setObject(2,reservationEntity.getSeqTicket());
-        ps.setInt(3,reservationEntity.getReservationUnit());
-        ps.setString(4,reservationEntity.getOwnerId());
-        ps.setInt(5,reservationEntity.getUsedNumber());
-        }
-        );
+    int[][]results=jdbcTemplate.batchUpdate(
+            " INSERT INTO reservation ( "
+            +"id, seq_ticket, reservation_unit, owner_id, used_number"
+            +") values ("
+            +"?, ?, ?, ?, ?"
+            +")",
+            reservationEntities,
+            batchSize,
+            (ps,reservationEntity)->{
+                ps.setObject(1,reservationEntity.getId());
+                ps.setObject(2,reservationEntity.getSeqTicket());
+                ps.setInt(3,reservationEntity.getReservationUnit());
+                ps.setString(4,reservationEntity.getOwnerId());
+                ps.setInt(5,reservationEntity.getUsedNumber());
+            });
 
-        long afterTime=System.currentTimeMillis();
-        long secDiffTime=(afterTime-beforeTime)/1000;
-        LOGGER.info("소요된 시간(m): {}",secDiffTime);
-        }
+    long afterTime=System.currentTimeMillis();
+    long secDiffTime=(afterTime-beforeTime)/1000;
+    LOGGER.info("소요된 시간(m): {}",secDiffTime);
+}
 ```
 
 > batch 사이즈는 500, 즉 500건을 하나의 쿼리로 수행   

@@ -17,10 +17,9 @@
 ```java
 @PostMapping(value = "/sendSMS")
 public ResponseEntity<SmsResponseDTO> sendToSMS(
-@RequestBody SmsRequestDTO requestDTO,
-@RequestHeader(name = "Content-Type") String contentType,
-@RequestHeader(name = "Authorization") String token
-        ){
+    @RequestBody SmsRequestDTO requestDTO,
+    @RequestHeader(name = "Content-Type") String contentType,
+    @RequestHeader(name = "Authorization") String token){
         LOGGER.info("/api/sendSMS 호출!!");
         LOGGER.info("Content-Type: {}",contentType);
         LOGGER.info("Authorization: {}",token);
@@ -30,13 +29,13 @@ public ResponseEntity<SmsResponseDTO> sendToSMS(
         if(requestDTO.getTitle()==null
         ||requestDTO.getContent()==null
         ||requestDTO.getTargetPhoneNumber()==null){
-        throw new CustomException(SMS_REQUEST_NOT_FOUND);
+            throw new CustomException(SMS_REQUEST_NOT_FOUND);
         }
 
         responseDTO.setMessage("Successfully sent");
-
+        
         return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
-        }
+}
 ```
 
 > Request JSON Sample
@@ -91,7 +90,6 @@ implementation 'org.springframework.boot:spring-boot-starter-webflux'
 > @ExceptionHandler: 발생한 특정 예외 잡아 하나의 메서드로 공통 처리
 
 ```java
-
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
